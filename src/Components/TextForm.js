@@ -62,6 +62,11 @@ export default function TextForm(props) {
       alert("Textbox is empty.");
     }
   };
+  const handleExtraSpaces=()=>{
+    console.log("remove extra spaces function initiated");
+    let newText=text.split(/[ ]+/);
+    setText(newText.join(" "));
+  }
   let wordArray = text.split(" ");
   let wordCount = wordArray.length;
   let k = wordCount;
@@ -106,6 +111,7 @@ export default function TextForm(props) {
         <button className="btn btn-primary m-2" onClick={copyWholeText}>
           Copy Text
         </button>
+        <button className="btn btn-primary m-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
         
       
         
