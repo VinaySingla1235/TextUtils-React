@@ -63,7 +63,7 @@ export default function TextForm(props) {
     }
   };
   const handleExtraSpaces=()=>{
-    console.log("remove extra spaces function initiated");
+    //console.log("remove extra spaces function initiated");
     let newText=text.split(/[ ]+/);
     setText(newText.join(" "));
   }
@@ -85,7 +85,7 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="container">
+      <div className="container" style={{color:props.mode==="light"?"black":"white"}}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
@@ -94,6 +94,8 @@ export default function TextForm(props) {
             rows="8"
             value={text}
             onChange={handleOnChange}
+            style={{backgroundColor:props.mode==="dark"?"grey":"white" , color:props.mode==="light"?"black":"white"}}
+            
           ></textarea>
         </div>
         <button className="btn btn-primary m-2" onClick={handleUpClick}>
@@ -117,14 +119,14 @@ export default function TextForm(props) {
         
     
       </div>
-      <div className="container my-2">
+      <div className="container my-2" style={{color:props.mode==="light"?"black":"white"}}>
         <h3>Your text summary</h3>
         <p>
           {wordCount} words and {text.length} characters
         </p>
         <p>{0.008 * wordCount} Minutes read</p>
         <h4>Preview</h4>
-        <p>{text}</p>
+        <p>{text.length>0 ? text:"Enter something in the text box to preview it here"}</p>
       </div>
     </>
   )
