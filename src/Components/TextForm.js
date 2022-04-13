@@ -5,11 +5,13 @@ export default function TextForm(props) {
     //console.log("Uppercase was clicked");
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to uppercase!","success");
   };
   const handleLowerClick = () => {
     //console.log("Uppercase was clicked");
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to lowercase!","success");
   };
   const handleOnChange = (event) => {
     //console.log("handleOnChange");
@@ -17,6 +19,7 @@ export default function TextForm(props) {
   };
   const clear = () => {
     setText("");
+    props.showAlert("Cleared the textbox!","success");
   };
   const capitalizeLines = () => {
     let lower = text.toLowerCase();
@@ -46,6 +49,7 @@ export default function TextForm(props) {
     //console.log(newText);
     //console.log(newText.join(""));
     setText(newText.join(""));
+    props.showAlert("Capitalized the lines!","success");
   };
   const copyWholeText = () => {
     if (text.length > 0) {
@@ -57,15 +61,17 @@ export default function TextForm(props) {
       navigator.clipboard.writeText(copyText);
 
       /* Alert the copied text */
-      alert("Copied the text: " + copyText);
+      props.showAlert("Text copied!","success")
     } else {
-      alert("Textbox is empty.");
+      props.showAlert("Textbox is empty!","success")
     }
   };
   const handleExtraSpaces=()=>{
     //console.log("remove extra spaces function initiated");
     let newText=text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("Removed extra spaces!","success")
+    
   }
   let wordArray = text.split(" ");
   let wordCount = wordArray.length;
