@@ -7,6 +7,7 @@ import TextForm from "./Components/TextForm";
 
 function App() {
   const [Mode , setMode]=useState('light');
+  /*const [blueMode , setBluishMode]=useState('light');*/
   const [modeRev, revMode]=useState('dark');
   const[alert, setAlert]=useState(null);
   const showAlert=(message,type)=>{
@@ -34,10 +35,25 @@ function App() {
     }
     //console.log(Mode,modeRev);
   }
+  const toggleModeBlue=()=>{
+    if(Mode ==="light"){
+      setMode("dark");
+      revMode("light");
+      document.body.style.backgroundColor='#08053b';
+      showAlert("Bluish Dark mode has been enabled","success");
+    }
+    else{
+      setMode("light");
+      revMode("dark");
+      document.body.style.backgroundColor='white';
+      showAlert("Light mode has been enabled","success");
+    }
+    //console.log(Mode,modeRev);
+  }
   
   return (
     <>
-      <Navbar title="TextUtils" mode={Mode} toggleMode={toggleMode} modeRever={modeRev}/>
+      <Navbar title="TextUtils" mode={Mode} toggleMode={toggleMode} /*blueMode={blueMode} */toggleModeBlue={toggleModeBlue}  modeRever={modeRev}/>
       <Alert alert={alert}/>
       <div className="container my-3">
       
