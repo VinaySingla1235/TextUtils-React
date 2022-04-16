@@ -26,12 +26,14 @@ function App() {
       revMode("light");
       document.body.style.backgroundColor='#0f0b0b';
       showAlert("Dark mode has been enabled","success");
+      document.title='Text-Utils - Dark Mode';
     }
     else{
       setMode("light");
       revMode("dark");
       document.body.style.backgroundColor='white';
       showAlert("Light mode has been enabled","success");
+      document.title='Text-Utils - Light Mode';
     }
     //console.log(Mode,modeRev);
   }
@@ -41,12 +43,14 @@ function App() {
       revMode("light");
       document.body.style.backgroundColor='#08053b';
       showAlert("Bluish Dark mode has been enabled","success");
+      document.title='Text-Utils - Bluishdark Mode';
     }
     else{
       setMode("light");
       revMode("dark");
       document.body.style.backgroundColor='white';
       showAlert("Light mode has been enabled","success");
+      document.title='Text-Utils - Light Mode';
     }
     //console.log(Mode,modeRev);
   }
