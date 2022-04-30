@@ -23,9 +23,9 @@ export default function TextForm(props) {
   };
   const capitalizeLines = () => {
     let lower = text.toLowerCase();
-    console.log(lower);
+    //console.log(lower);
     //setText(lower);
-    console.log(text);
+    //console.log(text);
     let newText = [...lower];
     //console.log(newText);
     let i = 0;
@@ -73,7 +73,7 @@ export default function TextForm(props) {
     props.showAlert("Removed extra spaces!","success")
     
   }
-  let wordArray = text.split(" ");
+  /*let wordArray = text.split(" ");
   let wordCount = wordArray.length;
   let k = wordCount;
   for (let i = 0; i < wordCount; i++) {
@@ -87,7 +87,7 @@ export default function TextForm(props) {
   wordCount = k;
   //console.log(wordArray);
   //console.log(wordCount);
-  //console.log(k);
+  //console.log(k);*/
 
   return (
     <>
@@ -128,9 +128,9 @@ export default function TextForm(props) {
       <div className="container my-2" style={{color:props.mode==="light"?"black":"white"}}>
         <h3>Your text summary</h3>
         <p>
-          {wordCount} words and {text.length} characters
+          {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters
         </p>
-        <p>{0.008 * wordCount} Minutes read</p>
+        <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
         <h4>Preview</h4>
         <p>{text.length>0 ? text:"Enter something in the text box to preview it here"}</p>
       </div>
