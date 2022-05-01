@@ -1,11 +1,8 @@
 import React, {useState} from "react";
 
-export default function About() {
-  const [myStyle, setMyStyle]=useState({
-      color:'black',
-      backgroundColor:'white'
-  });
-  const [btnText, setBtntext]=useState("Enable Dark Mode");
+export default function About(props) {
+  
+  /*const [btnText, setBtntext]=useState("Enable Dark Mode");
   const toggleStyle=()=>{
       if(myStyle.color==='black'){
           setMyStyle({
@@ -24,22 +21,31 @@ export default function About() {
 
       }
       }
-  
+      */
+    let myStyle={
+      color:props.mode==='dark'?'white':'black',
+      backgroundColor:props.mode==='dark'?'black':'white'
+    }
+    let AccordStyle={
+      color:props.mode==='dark'?'white':'black',
+      backgroundColor:props.mode==='dark'?'#292d31':'white'
+    }
   
   
   return (
     <div className="container" style={myStyle}>
       <h1 className="my-2">About us</h1>
-      <div className="accordion" id="accordionExample">
-        <div className="accordion-item">
+      <div className="accordion" id="accordionExample" style={AccordStyle}>
+        <div className="accordion-item" style={AccordStyle}>
           <h2 className="accordion-header" id="headingOne">
-            <button style={myStyle}
+            <button 
               className="accordion-button"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
+              style={AccordStyle}
             >
               Accordion Item #1
             </button>
@@ -50,7 +56,7 @@ export default function About() {
             aria-labelledby="headingOne"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body" style={myStyle}>
+            <div className="accordion-body" >
               <strong>This is the first item's accordion body.</strong> It is
               shown by default, until the collapse plugin adds the appropriate
               classNamees that we use to style each element. These classNamees control
@@ -62,7 +68,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div className="accordion-item" style={AccordStyle}>
           <h2 className="accordion-header" id="headingTwo">
             <button
               className="accordion-button collapsed"
@@ -71,7 +77,7 @@ export default function About() {
               data-bs-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo"
-              style={myStyle}
+              style={AccordStyle}
             >
               Accordion Item #2
             </button>
@@ -82,7 +88,7 @@ export default function About() {
             aria-labelledby="headingTwo"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body" style={myStyle}>
+            <div className="accordion-body" >
               <strong>This is the second item's accordion body.</strong> It is
               hidden by default, until the collapse plugin adds the appropriate
               classNamees that we use to style each element. These classNamees control
@@ -94,7 +100,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div className="accordion-item" style={AccordStyle}>
           <h2 className="accordion-header" id="headingThree">
             <button
               className="accordion-button collapsed"
@@ -103,7 +109,7 @@ export default function About() {
               data-bs-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree"
-              style={myStyle}
+              style={AccordStyle}
             >
               Accordion Item #3
             </button>
@@ -113,8 +119,9 @@ export default function About() {
             className="accordion-collapse collapse"
             aria-labelledby="headingThree"
             data-bs-parent="#accordionExample"
+            style={AccordStyle}
           >
-            <div className="accordion-body" style={myStyle}>
+            <div className="accordion-body" >
               <strong>This is the third item's accordion body.</strong> It is
               hidden by default, until the collapse plugin adds the appropriate
               classNamees that we use to style each element. These classNamees control
@@ -127,9 +134,7 @@ export default function About() {
           </div>
         </div>
       </div>
-    <div className="container my-2">
-    <button className="btn btn-primary my-3" onClick={toggleStyle}>{btnText}</button>
-    </div>
+    
     </div>
   );
 }
