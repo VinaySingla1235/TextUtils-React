@@ -41,6 +41,9 @@ export default function TextForm(props) {
           //console.log("inner loop started");
           k++;
         }
+        if(k>=newText.length-1){
+          break;
+        }
         //console.log(k);
         newText[k + 1] = newText[k + 1].toUpperCase();
         //console.log(newText[k+1]);
