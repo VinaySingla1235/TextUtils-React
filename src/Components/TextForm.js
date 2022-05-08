@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 export default function TextForm(props) {
   const [text, setText] = useState("");
+  const [prevText,setPrevText]=useState("");
   const handleUpClick = () => {
     //console.log("Uppercase was clicked");
+    setPrevText(text);
+    //console.log(prevText);
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("Converted to uppercase!","success");
   };
   const handleLowerClick = () => {
+    setPrevText(text);
     //console.log("Uppercase was clicked");
     let newText = text.toLowerCase();
     setText(newText);
@@ -18,10 +22,12 @@ export default function TextForm(props) {
     setText(event.target.value);
   };
   const clear = () => {
+    setPrevText(text);
     setText("");
     props.showAlert("Cleared the textbox!","success");
   };
   const capitalizeLines = () => {
+    setPrevText(text);
     let lower = text.toLowerCase();
     //console.log(lower);
     //setText(lower);
@@ -69,6 +75,7 @@ export default function TextForm(props) {
     }
   };
   const handleExtraSpaces=()=>{
+    setPrevText(text);
     //console.log("remove extra spaces function initiated");
     let newText=text.split(/[ ]+/);
     setText(newText.join(" "));
@@ -90,7 +97,11 @@ export default function TextForm(props) {
   //console.log(wordArray);
   //console.log(wordCount);
   //console.log(k);*/
-
+  const undo=()=>{
+    //console.log(prevText);
+    setText(prevText);
+    props.showAlert("Undone the changes!","success")
+  }
   return (
     <>
       <div className="container" style={{color:props.mode==="light"?"black":"white"}}>
@@ -122,6 +133,7 @@ export default function TextForm(props) {
           Copy Text
         </button>
         <button className="btn btn-primary m-2" onClick={handleExtraSpaces} disabled={text.length===0}>Remove Extra Spaces</button>
+        <button className="btn btn-primary m-2" onClick={undo} disabled={prevText.length===0}>Undo</button>
         
       
         
