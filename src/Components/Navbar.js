@@ -18,7 +18,7 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/" onClick={changeTitleHome}>
+        <Link className="navbar-brand" to="/TextUtils-React" onClick={changeTitleHome}>
           {props.title}
         </Link>
         <button
@@ -35,12 +35,12 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" id="home" aria-current="page" to="/" onClick={changeTitleHome}>
+              <Link className="nav-link" id="/TextUtils-React" aria-current="page" to="/" onClick={changeTitleHome}>
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" id="about" to="/about" onClick={changeTitleAbout}>
+              <Link className="nav-link" id="/TextUtils-React/about" to="/about" onClick={changeTitleAbout}>
                 About
               </Link>
             </li>
